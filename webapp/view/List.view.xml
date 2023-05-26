@@ -58,7 +58,7 @@
                             press=".onOpenViewSettings"
                             icon="sap-icon://sort"
                             type="Transparent"/>
-
+                        <Button press="onAddBook" icon="sap-icon://add" type="Transparent" />
                     </OverflowToolbar>
                 </headerToolbar>
                 <items>

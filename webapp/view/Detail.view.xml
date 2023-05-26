@@ -47,8 +47,10 @@
         <semantic:content>
             <f:SimpleForm>
                 <f:content>
-                    <Label text="{i18n>isbn}" />
-                    <Text text="{Isbn}" />
+                    <Label text="{i18n>isbn}" visible="{detailView>/new}" />
+                    <Input value="{Isbn}" visible="{detailView>/new}" />
+                    <Label text="{i18n>isbn}" visible="{= !${detailView>/new} }" />
+                    <Text text="{Isbn}" visible="{= !${detailView>/new} }" />
                     <Label text="{i18n>title}" />
                     <Input value="{Title}" />
                     <Label text="{i18n>author}." />
