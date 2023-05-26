@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.6"
+metadata:
+  name: be.ap.sap.bookapp
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: https://a03z.ucc.ovgu.de/
+          client: "238"
+        app:
+          name: ZSD_000_BOOKAPP
+          description: Book app
+          package: ZSD_000_BOOK
+          transport: A03K900838
+        exclude:
+          - /test/
