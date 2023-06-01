@@ -110,9 +110,9 @@ sap.ui.define([
                 // this.getView().setModel(model);
                 const bindingContext = model.createEntry('/BookSet', {
                     properties: {
-                        Author: 'new',
-                        Title: 'new',
-                        Description: 'new'
+                        Author: '',
+                        Title: '',
+                        Description: ''
                     }
                 });
                 this.getView().bindElement(bindingContext.getPath());
@@ -144,6 +144,9 @@ sap.ui.define([
 
             this.getView().bindElement({
                 path: sObjectPath,
+                parameters: {
+                    expand: 'ToStoreStock',
+                },
                 events: {
                     change: this._onBindingChange.bind(this),
                     dataRequested: function () {
