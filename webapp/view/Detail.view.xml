@@ -18,12 +18,6 @@
         <semantic:content>
 
         </semantic:content>
-        <!--Semantic ShareMenu Buttons-->
-        <semantic:sendEmailAction>
-            <semantic:SendEmailAction
-                id="shareEmail"
-                press=".onSendEmailPress"/>
-        </semantic:sendEmailAction>
 
         <semantic:closeAction>
             <semantic:CloseAction
@@ -49,15 +43,15 @@
                 <f:SimpleForm>
                     <f:content>
                         <Label text="{i18n>isbn}" visible="{detailView>/new}" />
-                    <Input value="{Isbn}" visible="{detailView>/new}" />
+                        <Input value="{Isbn}" visible="{detailView>/new}" placeholder="{i18n>phIsbn}" />
                         <Label text="{i18n>isbn}" visible="{= !${detailView>/new} }" />
                         <Text text="{Isbn}" visible="{= !${detailView>/new} }" />
                         <Label text="{i18n>title}" />
-                    <Input value="{Title}" />
-                    <Label text="{i18n>author}." />
-                    <Input value="{Author}" />
+                        <Input value="{Title}" placeholder="{i18n>phTitle}" maxLength="55" />
+                        <Label text="{i18n>author}" />
+                        <Input value="{Author}" placeholder="{i18n>phAuthor}" maxLength="60" />
                         <Label text="{i18n>description}" />
-                    <Input value="{Description}" />
+                        <Input value="{Description}" placeholder="{i18n>phDescription}" maxLength="150" />
                     </f:content>
                 </f:SimpleForm>
 

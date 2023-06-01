@@ -37,21 +37,6 @@ sap.ui.define([
         /* =========================================================== */
         /* event handlers                                              */
         /* =========================================================== */
-
-        /**
-         * Event handler when the share by E-Mail button has been clicked
-         * @public
-         */
-        onSendEmailPress: function () {
-            var oViewModel = this.getModel("detailView");
-
-            URLHelper.triggerEmail(
-                null,
-                oViewModel.getProperty("/shareSendEmailSubject"),
-                oViewModel.getProperty("/shareSendEmailMessage")
-            );
-        },
-
         onSave: function () {
             this.getModel("detailView").setProperty("/busy", true);
             this.getModel().submitChanges({
@@ -172,19 +157,8 @@ sap.ui.define([
                 return;
             }
 
-            var sPath = oElementBinding.getPath(),
-                oResourceBundle = this.getResourceBundle(),
-                oObject = oView.getModel().getObject(sPath),
-                sObjectId = oObject.Isbn,
-                sObjectName = oObject.Title,
-                oViewModel = this.getModel("detailView");
-
+            var sPath = oElementBinding.getPath();
             this.getOwnerComponent().oListSelector.selectAListItem(sPath);
-
-            oViewModel.setProperty("/shareSendEmailSubject",
-                oResourceBundle.getText("shareSendEmailObjectSubject", [sObjectId]));
-            oViewModel.setProperty("/shareSendEmailMessage",
-                oResourceBundle.getText("shareSendEmailObjectMessage", [sObjectName, sObjectId, location.href]));
         },
 
         _onMetadataLoaded: function () {
