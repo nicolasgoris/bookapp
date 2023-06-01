@@ -45,20 +45,48 @@
         </semantic:exitFullScreenAction>
 
         <semantic:content>
-            <f:SimpleForm>
-                <f:content>
-                    <Label text="{i18n>isbn}" visible="{detailView>/new}" />
+            <VBox>
+                <f:SimpleForm>
+                    <f:content>
+                        <Label text="{i18n>isbn}" visible="{detailView>/new}" />
                     <Input value="{Isbn}" visible="{detailView>/new}" />
-                    <Label text="{i18n>isbn}" visible="{= !${detailView>/new} }" />
-                    <Text text="{Isbn}" visible="{= !${detailView>/new} }" />
-                    <Label text="{i18n>title}" />
+                        <Label text="{i18n>isbn}" visible="{= !${detailView>/new} }" />
+                        <Text text="{Isbn}" visible="{= !${detailView>/new} }" />
+                        <Label text="{i18n>title}" />
                     <Input value="{Title}" />
                     <Label text="{i18n>author}." />
                     <Input value="{Author}" />
-                    <Label text="{i18n>description}" />
+                        <Label text="{i18n>description}" />
                     <Input value="{Description}" />
-                </f:content>
-            </f:SimpleForm>
+                    </f:content>
+                </f:SimpleForm>
+
+                <Table inset="false" items="{ path: 'ToStoreStock' }">
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <content>
+                                <Title text="{i18n>storeStock}" level="H2"/>
+                            </content>
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column>
+                            <Text text="{i18n>store}" />
+                        </Column>
+                        <Column hAlign="End">
+                            <Text text="{i18n>stock}" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem vAlign="Middle">
+                            <cells>
+                                <ObjectIdentifier title="{Name}" text="{StoreId}"/>
+                                <ObjectNumber number="{Stock}" unit="{i18n>book}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
         </semantic:content>
 
         <semantic:footerCustomActions>
